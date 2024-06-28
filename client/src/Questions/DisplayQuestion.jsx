@@ -1,6 +1,6 @@
 import React from 'react'
-import Leftsidebar from '../Leftsidebar/Leftsidebar'
-import Rightsidebar from '../Rightsidebar/Rightsidebar'
+import Leftsidebar from '../components/Leftsidebar/Leftsidebar'
+import Rightsidebar from '../components/Rightsidebar/Rightsidebar'
 import QuestionsDetails from './QuestionsDetails'
 
 const DisplayQuestion = ({slidein}) => {

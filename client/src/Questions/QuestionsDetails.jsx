@@ -1,9 +1,10 @@
 import React from 'react'
 import { Link, useParams } from 'react-router-dom'
-import upvote from '../../assests/sort-up.svg'
-import downvote from '../../assests/sort-down.svg'
+import upvote from '../assests/sort-up.svg'
+import downvote from '../assests/sort-up.svg'
 import './Questions.css'
-import Avatar from '../Avatar/Avatar'
+import Avatar from '../components/Avatar/Avatar'
+import DisplayAnswer from './DisplayAnswer'
 const QuestionsDetails = () => {
     const { id } = useParams()
 
@@ -110,10 +111,27 @@ const QuestionsDetails = () => {
                      {
                         question.noOfAnswers !== 0 && (
                             <section>
-                                
+                                <h3>{question.noOfAnswers} answers</h3>
+                                <DisplayAnswer key={question._id} question={question}/>
                             </section>
                         )
                      }
+                     <section className='post-ans-container'>
+                        <h3>Your Answer</h3>
+                        <form>
+                            <textarea name="" id="" cols="30" rows="10"></textarea><br/>
+                            <input type="Submit" className='post-ans-btn' value='Post Your Answer'/>
+                        </form>
+                          <p>
+                            Browse other Question tagged
+                            {
+                                question.questionTags.map((tag) => (
+                                    <Link to='/Tags' key={tag} className='ans-tags'>{tag}</Link>
+                                ))
+                            } or
+                            <Link to='AskQuestion' style={{textDecoration:"none",color:"#009dff"}}> ask your own question.</Link>
+                          </p>
+                     </section>
                     </div>
                 ))
             }

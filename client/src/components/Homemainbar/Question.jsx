@@ -5,11 +5,11 @@ const Question = ({ question }) => {
     return(
         <div className='display-question-container'>
             <div className='display-votes-ans'>
-                {/* <p>{question.upVotes?.length - question.downVotes?.length}</p> */}
+                 <p>{question.upVotes - question.downVotes}</p> 
                 <p>votes</p>
             </div>
             <div className='display-votes-ans'>
-                <p>{question.noOfAnswer}</p>
+                <p>{question.noOfAnswers}</p>
                 <p>answers</p>
             </div>
             <div className="display-question-details">
@@ -18,7 +18,7 @@ const Question = ({ question }) => {
                 <div className='display-tags-time'>
                     <div className='display-tags'>
                         {
-                            question?.questiontags?.map((tag) => (
+                            question?.questionTags?.map((tag) => (
                             <p key ={tag}>{tag}</p>
                             ))
                         }
